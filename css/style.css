@@ -1,0 +1,245 @@
+/* ADD YOUR STYLES HERE */
+.y-axis2 path {
+    display: none;
+}
+
+.container-fluid {
+    border: thin solid grey;
+    border-radius: 5px;
+}
+
+.row_1 {
+    height: 12vh;
+    background: #2B7A78;
+}
+
+.row_2 {
+    height: 60vh;
+    border-style: groove;
+    background-color: #DEF2F1;
+}
+
+.row_3 {
+    height: 60vh;
+    border-style: groove;
+    background-color: #3AAFA9;
+}
+
+.row_4 {
+    /*height: 60vh;*/
+    border-style: groove;
+    background-color: #3AAFA9;
+    padding-top: 20px;
+}
+
+.row_5 {
+    background-color: #DEF2F1;
+}
+
+.page-title {
+    color: #F2E9E4
+}
+
+.bar {
+    fill: #357EC7;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #04AA6D;
+    width: 0%;
+}
+
+.bars-label {
+    font: 14px sans-serif;
+    fill: dimgrey;
+}
+
+.bargraph-title {
+    font-weight: bold;
+}
+
+.boxPlotTitle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.area {
+    fill: #357EC7;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+#categorySelector {
+    border-style: groove;
+    padding-left: 0.5rem;
+}
+
+#categoryValueSelector {
+    border-style: groove;
+}
+
+.x-axis {
+    font-weight: bold;
+    font-size: small;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tooltip h3 {
+    text-align: left;
+    font: 18px sans-serif;
+    color: #dc3545;
+}
+
+.tooltip h4 {
+    text-align: left;
+    font: 14px sans-serif;
+}
+
+.text-context {
+    padding-right: 15vh;
+    padding-left: 15vh;
+}
+
+.yAxisBoxPlot {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.xAxisBoxPlot {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.xAxisChart2 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.yAxisChart2 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.column {
+
+    float: left;
+    width: 50%;
+    /*background: #2B7A78;*/
+
+}
+
+.column-2 {
+    float: left;
+    width: 100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.teamColumn {
+    float: left;
+    width: 25%;
+    height: 100%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    background-color: #DEF2F1;
+}
+
+
+.teamContainer {
+    padding: 0 16px;
+}
+
+.teamContainer::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+@media screen and (max-width: 650px) {
+    .teamColumn {
+        width: 100%;
+        display: block;
+    }
+}
+
+#dataset:link, #dataset:visited {
+    background-color: #2B7A78;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-style: double;
+    border-color: white;
+}
+
+
+/* button */
+a.popup {
+    outline: none;
+    background: #fffAF0;
+    font: 18px sans-serif;
+}
+
+a.popup strong {
+    line-height: 30px;
+}
+
+/*a.popup:hover {*/
+/*    text-decoration: none;*/
+/*}*/
+
+a.popup span {
+    z-index: 10;
+    display: none;
+    padding: 14px 20px;
+    margin-top: 20px;
+    /*margin-left: 28px;*/
+    width: 40%;
+    line-height: 16px;
+    font: 18px sans-serif;
+    text-align: left;
+}
+
+
+a.popup:hover span {
+    display: inline;
+    position: absolute;
+    color: #111;
+    border: 1px solid #DCA;
+    background: #fffAF0;
+}

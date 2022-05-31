@@ -1,0 +1,550 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS5764 - Final Project - Core Four</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="header">
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+
+    <div class="row justify-content-center row_1">
+        <div class="align-self-center">
+            <h1 class="page-title">Analysis of Google Play Store Applications</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center row_4">
+        <div class="align-self-center text-context">
+            <p style="text-align:center; font-size:100%; font-weight:bold">"It's good to learn from your mistakes. It's
+                better to learn from other people's mistakes."
+            </p>
+            <p style="text-align:right; font-size:100%; font-weight:bold">- Warren Buffett
+            </p>
+            <ul style="font-size:100%">
+                <li>The play store applications data has
+                    enormous potential to drive application-making businesses and companies to success.
+                </li>
+                <li>The goal of this analysis is to provide insights to android application developers about the
+                    trends in the android market and help them in creating more influential or successful applications
+                    based
+                    on various factors like rating, reviews, number of installs, etc.
+                </li>
+            </ul>
+            <p style="text-align:center; font-size:100%; font-weight:bold">
+                Actionable insights can be drawn for developers to work on and capture the android market!</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_4" style="background-color: #2B7A78">
+        <div class="align-self-center text-context" id="text-10">
+            <p style="text-align:center; font-size:120%; font-weight:bold; color: #F2E9E4">
+                Hover over the user guide alongside each visualization for more information on them!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="row justify-content-center row_3">
+                <div class="align-self-center text-context">
+
+                    <a href="#" class="popup"><button type="button" style="border: thin solid grey">
+                        User Guide
+                        <span>
+                            <ul style="font-size:100%; margin:0;padding:0;">
+                                <li>The visualization on the right shows the most installed applications
+                            in each category.
+                                </li>
+                                <li>Users can explore the different categories like content rating and genres and find out
+                                    which applications have been most installed in that category.
+                                </li>
+                            </ul>
+                        </span>
+                    </button>
+                    </a>
+
+                    <p style="text-align:left; font-size:100%; font-weight:bold">
+                        <br> Examples of the most installed applications and their categories:
+                    </p>
+
+                    <ul style="font-size:100%">
+                        <li> Google News (News)</li>
+                        <li> Google play games (Family)</li>
+                        <li> Subway surfers (Games)</li>
+                        <li> Youtube (Video player)</li>
+                        <li> Drive (Productivity)</li>
+                        <li> Google (Tools)</li>
+                        <li> Maps (Travel)</li>
+                        <li> Google photos(Photography)</li>
+                        <li> Facebook, Instagram(Social)</li>
+                    </ul>
+                    <p style="text-align:center; font: 18px sans-serif; font-weight:bold;">
+                        <br> What makes these applications stand out from the rest?<br>
+                        Let's dive deeper into it!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="justify-content-center row_2">
+                <h5 style="text-align:center; padding: 10px; border: groove; background-color: #2B7A78; color: #F2E9E4">
+                    What are the top installed apps by
+                    category, genre, type and
+                    content
+                    rating?</h5>
+
+                <div id="vis-2-container">
+                    <div>
+                        <div class="container">
+                            <p style="font-weight: bold">Category: &nbsp; &nbsp;</p>
+                            <select id='categorySelector' class="custom-select align-self-center"
+                                    style="width: 30%" onchange="getCategoryValues()">
+                                <option value="All" selected>ALL</option>
+                                <option value="Category">Category</option>
+                                <option value="ContentRating">Content Rating</option>
+                                <option value="Type">Type</option>
+                                <option value="Genres">Genres</option>
+                            </select>
+                            <p style="font-weight: bold; padding-left: 0.5rem">Category Value: &nbsp; &nbsp;</p>
+                            <select id='categoryValueSelector' class="custom-select align-self-center"
+                                    style="width: 40%" onchange="categoryChange()">
+                            </select>
+                        </div>
+
+                    </div>
+                    <div id="vis_content-2"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_4" style="background-color: #2B7A78">
+        <div class="align-self-center text-context" id="text-6">
+            <p style="text-align:center; font-size:120%; font-weight:bold; color: #F2E9E4">
+                To measure success of an application, a threshold of 10,000,000 downloads has been selected! </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="row justify-content-center row_3">
+                <div class="align-self-center text-context">
+
+                    <a href="#" class="popup"><button type="button" style="border: thin solid grey">
+                        User Guide
+                        <span>
+                            <ul style="font-size:100%; margin:0;padding:0;">
+                                <li> Hovering over each color in the pie chart on the right
+                        provides information about the number of applications.
+                                </li>
+                            </ul>
+                        </span>
+                    </button>
+                    </a>
+
+                    <p style="text-align:left; font-size:100%; font-weight:bold">
+                        <br> Analysis of the free and paid
+                        applications on the playstore: </p>
+
+
+                    <ul style="font-size:100%">
+                        <li> 20.7% of free applications achieved over 10,000,000 downloads.
+                        </li>
+                        <li> Only 0.375% of paid applications achieved over 10,000,000 downloads.
+                        </li>
+                    </ul>
+
+                    <p style="text-align:center; font: 18px sans-serif; font-weight:bold;">
+                        <br> There is a higher chance of success
+                        for free applications than there is for paid applications.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+
+            <div class="row justify-content-center row_2">
+                <div class="col-6" id="content-1">
+                </div>
+                <div class="col-6" id="vis_content-1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_4">
+        <div class="align-self-center text-context" id="text-3">
+
+            <a href="#" class="popup"><button type="button" style="border: thin solid grey">
+                User Guide
+                <span>
+                   <ul style="font-size:100%">
+                        <li>The visualization below is interactive in which
+                            a pie chart has been connected with the area chart.
+                        </li>
+
+                        <li>The pie charts show what portion of the market has been captured by specific application
+                            categories and content ratings.
+                        </li>
+                    </ul>
+
+                </span>
+            </button>
+            </a>
+
+            <p style="text-align:center; font-size:100%; font-weight:bold">
+                <br> Below is a visualization of the growth of applications in specific categories and content ratings with time
+            </p>
+
+            <ul style="font-size:100%">
+                <li>A huge spike in the number of applications towards the end of 2018.
+                </li>
+                <li>The <strong>‘family’</strong> genre and <strong>‘everyone’</strong> content rating have the most share
+                    of the market at any given point,
+                    <em style="font-size: 18px; font-weight:bold">the sweet spot developers could focus on!</em>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_2" style="padding-top: 0.5rem">
+        <div class="col-md-3" id="content-3">
+        </div>
+        <div class="col-md-3" id="vis_content-3">
+        </div>
+        <div class="col-md-6" id="content-4">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6">
+            <div class="row justify-content-center row_3">
+                <div class="align-self-center text-context">
+
+                    <a href="#" class="popup"><button type="button" style="border: thin solid grey">
+                        User Guide
+                        <span>
+                           <ul style="font-size:100%">
+                                <li>The visualization on the right shows the distribution of rating values per category.
+                                </li>
+                                <li>This is a box plot visualization showing minimum, maximum, quartiles and median of rating
+                                    values for each category rating.
+                                </li>
+                            </ul>
+
+                        </span>
+                    </button>
+                    </a>
+
+
+                    <p style="text-align:center; font-size:100%; font-weight:bold">
+                    <ul style="font-size:100%">
+                        <li>The 'Adults only' category has the highest median rating among all categories.
+                        </li>
+                        <li>'Everyone' category has higher inter-quartile range.
+                        </li>
+                        <li>A potential reason might be that more people are using applications that are rated 'Everyone'.
+                            </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row justify-content-center row_2">
+                <div class="col-12" id="vis_content-6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_4">
+        <div class="align-self-center text-context" id="text-5">
+
+            <a href="#" class="popup"><button type="button" style="border: thin solid grey">
+                User Guide
+                <span>
+                   <ul style="font-size:100%">
+                        <li>The visualization below shows the sentiment analysis
+                            of the reviews for the applications in the form of a word cloud.
+                        </li>
+                        <li>It analyzes the most common words in positive and negative reviews among various
+                            application categories (use 5 categories for illustration)
+                        </li>
+                    </ul>
+
+                </span>
+            </button>
+            </a>
+
+            <p style="text-align:center; font-size:100%; font-weight:bold">
+                <br> What do users say about an application? What do people commonly like/dislike about an application?
+            </p>
+            <p style="text-align:center; font-size:100%; font-weight:bold">
+                Go ahead, take a look!
+            </p>
+
+            <p style="text-align:left; font: 18px sans-serif; font-weight:bold;">Key features identified for dissatisfaction with the application:
+            <li> GAME: 'money', 'ads', 'time', etc.</li>
+            <li> COMMUNICATION: 'message', 'update', 'ads', 'slow', etc.</li>
+            <li> TOOLS: 'phone', 'update', 'ads', 'useless', etc.</li>
+            <li> SOCIAL: 'update', 'time', 'facebook', 'posts', etc.</li>
+            <li> NEWS AND MAGAZINES: 'fake', 'ads', 'time', 'hate', etc.</li>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center row_4" style="background-color: #2B7A78">
+        <div class="align-self-center text-context" id="text-9">
+            <div class="container">
+                <h4 style="font-weight: bold; padding-bottom: 1rem; color:#F2E9E4">
+                    Choose a Category of Interest! </h4>
+                <select id='reviewcategorySelector' class="custom-select align-self-center"
+                        style="width: 40%" onchange="reviewcategoryChange()">
+                    <option value="GAME">GAME</option>
+                    <option value="COMMUNICATION">COMMUNICATION</option>
+                    <option value="TOOLS">TOOLS</option>
+                    <option value="SOCIAL">SOCIAL</option>
+                    <option value="NEWS_AND_MAGAZINES">NEWS_AND_MAGAZINES</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6" style="border: groove; padding-top:7px">
+            <h5 style="text-align:center; padding: 10px; width: 100%; background: #31B346 ">What Users like?</h5>
+        </div>
+        <div class="col-6" style="border: groove; padding-top:7px">
+            <h5 style="text-align:center; padding: 10px; width: 100%; background: #FF3933 ">What Users dislike?</h5>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_2">
+        <div class="col-md-6" id="wordcloud-pos" style="border: groove">
+        </div>
+        <div class="col-md-6" id="wordcloud-neg" style="border: groove">
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center row_4">
+        <div class="align-self-center text-context" id="text-4">
+
+            <a href="#" class="popup"><button type="button" style="border: thin solid grey">
+                User Guide
+                <span>
+                   <ul style="font-size:100%">
+                        <li>The innovative visualization below shows the sentiment analysis
+                            of the reviews for the applications.
+                        </li>
+                        <li>The left plot is a Voronoi Treemap with each color represents a content rating category.
+                            The shape of polygons represent the number of installs for each App.
+                        </li>
+                        <li>Click on any Voronoi polygon, more detailed reviews will appear on the right side,
+                            and each bubble represents one review.
+                            The color represents whether the sentiment is positive, negative or neutral and
+                            The size of the bubble represents the polarity of the review.
+                        </li>
+                        <li>When we hover over the
+                            bubbles, more details about the review appear.
+                        </li>
+                        <li>You can also drag and play with the bubbles for fun!</li>
+
+                    </ul>
+
+                </span>
+            </button>
+            </a>
+
+            <p style="text-align:center; font-size:100%; font-weight:bold">
+                <br> Let's dive into more details about the customer reviewers!
+            </p>
+
+            <ul style="text-align:left; font-size:100%;">
+                <li>Applications that are downloaded a lot (e.g., <strong>'Facebook'</strong>) have reviews that are a mixture of
+                    all sentiments, making it harder to judge them.</li>
+                <li>Applications that are downloaded less (e.g., <strong>'Background Wallpapers HD'</strong>)
+                    have fewer but clearer sentiments in reviews. </li>
+                <li>The many negative reviews for <strong>'Facebook'</strong> can also
+                    be attributed to the fact that many users have become increasingly unhappy with the addition of
+                    <strong>ads</strong>, <strong>fake news</strong>, etc. </li>
+                <li>This is what still keeps applications like <strong>'Amazon'</strong> and <strong>'Google'</strong> fairly
+                    positive in their reviews, i.e., customers are still happy with the service provided even though the number of
+                    downloads for these applications are the same as <strong>'Facebook'</strong>.</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center row_2">
+
+        <div class="col-md-6" id="voronoi-chart">
+        </div>
+        <div class="col-md-6" id="bubble-chart">
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_4">
+        <div class="align-self-center" style="width: 75%;">
+            <h1 style="text-align:center; font: 20px sans-serif; font-weight:bold;">
+                <br> Conclusion:
+            </h1>
+            <p style="text-align:center; font-size:100%;">
+                Our project aims to help android application developers in building
+                successful applications. By becoming aware of the factors behind successful applications, they
+                can incorporate them into their applications. In the exploration of why certain applications fail, the
+                telltale signs can be used by developers as indicators that they are heading in the wrong direction. A
+                variety of genres and the reasons behind their success or failure are explored. Sentiments
+                from reviews are also visualized to give the developers a better idea of what customers want
+                and what to focus on when developing applications.
+            </p>
+
+            <h1 style="text-align:center; font: 20px sans-serif; font-weight:bold;">
+                <br> Takeaways:
+            </h1>
+
+            <ul style="text-align:left; font-size:100%;">
+                <li>Top installed application: Google, Youtube, Facebook, Instagram, Subway Surfers, etc.</li>
+                <li>Higher chance of success in free application market.</li>
+                <li>Applications in the 'Family' and 'Everyone' genre could be the sweet spot developers may focus on.</li>
+                <li>Common features that generate user dissatisfaction are:
+                    <br> 'money', 'ads', 'time', 'slow', 'useless', 'fake', etc.</li>
+                <li>Developers could avoid including these features in their applications.</li>
+
+            </ul>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center row_4" style="background-color: #2B7A78">
+        <div class="align-self-center text-context" id="text-7">
+            <p style="text-align:center; font-size:150%; font-weight:bold; color: #F2E9E4">
+                Our Team </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_5">
+
+        <div class="teamRow">
+
+            <div class="teamColumn">
+                <div class="card">
+                    <div class="teamContainer">
+                        <h2>Zhen <br> Shen</h2>
+                        <p>Bachelor's student <br> Virginia Tech</p>
+                        <a href = "mailto: zeroshen@vt.edu">zeroshen@vt.edu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teamColumn">
+                <div class="card">
+                    <div class="teamContainer">
+                        <h2>Meng <br> Qi</h2>
+                        <p>PhD candidate <br> Virginia Tech</p>
+                        <a href = "mailto: mengqi@vt.edu">mengqi@vt.edu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teamColumn">
+                <div class="card">
+                    <div class="teamContainer">
+                        <h2>Ashish Bhat</h2>
+                        <p>Master's student <br> Virginia Tech</p>
+                        <a href = "mailto: ashishbhat@vt.edu">ashishbhat@vt.edu</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teamColumn">
+                <div class="card">
+                    <div class="teamContainer">
+                        <h2>Mayur Dhepe</h2>
+                        <p>Master's student <br> Virginia Tech</p>
+                        <a href = "mailto: mdhepe@vt.edu">mdhepe@vt.edu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center row_4" style="background-color: #2B7A78">
+        <div class="align-self-center text-context" id="text-8">
+            <p style="text-align:center; font-size:150%; font-weight:bold; color: #F2E9E4">
+                Sources </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center row_4">
+        <div class="teamRow">
+            <p style="text-align: center">We collected data from Kaggle dataset. The dataset contains different features of the apps, including
+                downloads, ratings, etc. It also contains user reviews of the applications. <br> Click on the button below to
+            access our dataset!</p>
+            <p style="text-align: center">
+                <a style="font-size: 150%; font-weight:bold; color: #F2E9E4;" href="https://www.kaggle.com/lava18/google-play-store-apps" id="dataset">Google Play Store
+                    Applications</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- embedding JS libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-hierarchy@3"></script>
+<script src="https://rawcdn.githack.com/Kcnarf/d3-weighted-voronoi/v1.1.0/build/d3-weighted-voronoi.js"></script>
+<script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-map/v2.1.0/build/d3-voronoi-map.js"></script>
+<script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-treemap/v1.1.1/build/d3-voronoi-treemap.js"></script>
+
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+
+<!-- Your implementation -->
+<script src="js/main.js"></script>
+<script src="js/pieChart.js"></script>
+<script src="js/barChart.js"></script>
+<script src="js/helper.js"></script>
+<script src="js/voronoiTreemap.js"></script>
+<script src="js/packedBubbles.js"></script>
+<script src="js/wordCloud.js"></script>
+<script src="js/areachart.js"></script>
+<script src="js/pieChartI.js"></script>
+<script src="js/boxPlot.js"></script>
+</body>
+</html>
