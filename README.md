@@ -2,7 +2,7 @@
 
 **Information Visualization (CS5764) Final Project <br> By 'Core Four'**
 
-**Team Members:** Zhen Shen, Meng Qi, Mayur Dhepe, Ashish Bhat
+**Team Members:** Ashish Bhat, Zhen Shen, Meng Qi, Mayur Dhepe
 
 - URL to the website: https://zeroshen.github.io/CS5764_Final_Project/
 - URL to the video: https://drive.google.com/file/d/16aFV7Akm8dywHWwMb8eyyhuRibnRKNZ3/view?usp=sharing
